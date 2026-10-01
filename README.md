@@ -382,34 +382,102 @@ packet-tracer/laboratorio-infraestrutura-redes.pkt
 
 ## Módulo 2 — Windows Server e Active Directory
 
-A segunda etapa deste projeto será dedicada à construção de um ambiente Windows Server.
+O segundo módulo do projeto foi concluído utilizando Windows Server 2025 e Windows 11 Pro em ambiente virtualizado com Oracle VirtualBox.
 
-O laboratório incluirá:
+O laboratório inclui:
 
-- Windows Server
 - Active Directory Domain Services
-- criação de domínio
-- Organizational Units (OUs)
-- usuários e grupos
-- ingresso de computadores no domínio
-- Group Policy (GPO)
+- Domain Controller
+- domínio `LABTI.local`
 - DNS
-- DHCP
-- permissões
-- administração de ambiente corporativo
+- Organizational Units (OUs)
+- usuários
+- grupos de segurança
+- modelo AGDLP
+- compartilhamentos SMB
+- permissões NTFS
+- controle de acesso
+- Windows 11 integrado ao domínio
+- Group Policy
+- troubleshooting de rede e serviços
 
-A documentação desse módulo ficará disponível em:
+### Ambiente
 
 ```text
-active-directory/README.md
+Servidor
+Hostname: SRV-DC01
+Sistema: Windows Server 2025
+IP: 192.168.10.10
+Domínio: LABTI.local
+
+Cliente
+Hostname: PC-CLIENTE01
+Sistema: Windows 11 Pro
+IP: 192.168.10.20
+DNS: 192.168.10.10
+Domínio: LABTI.local
 ```
 
-> Módulo em desenvolvimento.
+### Controle de acesso
+
+Foi utilizado o modelo AGDLP para organizar usuários, grupos e permissões:
+
+```text
+Accounts
+   ↓
+Global Groups
+   ↓
+Domain Local Groups
+   ↓
+Permissions
+```
+
+No laboratório, foram utilizados grupos como:
+
+```text
+GG_COMERCIAL
+GG_FINANCEIRO
+GG_RH
+GG_TI
+DL_FS_FINANCEIRO_RW
+```
+
+Também foram realizados testes práticos de:
+
+- acesso permitido a compartilhamentos;
+- acesso negado para usuários sem autorização;
+- resolução DNS;
+- autenticação no domínio;
+- conectividade com o controlador de domínio;
+- comunicação SMB através da porta TCP 445;
+- permissões NTFS.
+
+A documentação completa do módulo está disponível em:
+
+[Documentação do laboratório Active Directory](active-directory/README.md)
+
+---
+
+## Status do projeto
+
+- ✅ Módulo 1 — Cisco Packet Tracer
+- ✅ Módulo 2 — Windows Server e Active Directory
 
 ---
 
 ## Objetivo do projeto
 
-Este projeto tem como objetivo desenvolver e documentar habilidades práticas relacionadas a infraestrutura e redes, simulando tarefas encontradas em ambientes corporativos.
+Este projeto tem como objetivo desenvolver e documentar habilidades práticas relacionadas à infraestrutura de TI, redes e administração de ambientes corporativos.
 
-Além da configuração dos serviços, o laboratório também busca demonstrar capacidade de diagnóstico e resolução de problemas através de ferramentas e comandos de troubleshooting.
+Durante os laboratórios foram aplicados conhecimentos de configuração, segmentação de redes, serviços de rede, Active Directory, controle de acesso, permissões e troubleshooting.
+
+O projeto reúne práticas relacionadas a:
+
+- infraestrutura de TI;
+- redes Cisco;
+- Windows Server;
+- Active Directory;
+- DNS e DHCP;
+- segurança e controle de acesso;
+- suporte técnico;
+- troubleshooting de redes e sistemas.
